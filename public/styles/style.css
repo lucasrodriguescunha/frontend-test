@@ -1,3 +1,48 @@
+:root {
+  /* Cores principais */
+  --primary-red: #BB3639;
+  --secondary-red: #BA3536;
+  --dark-red: #BB3D42;
+  --dark-gray: #272727;
+  --light-gray: #909090;
+  --white: #FFFFFF;
+  --black: #000000;
+
+  /* Espaçamentos */
+  --spacing-xs: 5px;
+  --spacing-sm: 8px;
+  --spacing-md: 10px;
+  --spacing-lg: 15px;
+  --spacing-xl: 20px;
+
+  /* Raios de borda */
+  --border-radius-sm: 2px;
+  --border-radius-full: 50%;
+
+  /* Sombras */
+  --shadow-light: 0 2px 6px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+  /* Tamanhos de fonte */
+  --font-size-sm: 14px;
+  --font-size-md: 18px;
+  --font-size-lg: 28px;
+
+  /* Pesos de fonte */
+  --font-weight-bold: 700;
+
+  /* Bordas */
+  --border-width: 5px;
+
+  /* Tamanhos específicos */
+  --image-size: 80px;
+  --logo-size: 80px;
+  --card-min-width: 220px;
+
+  /* Transições */
+  --transition-default: all 0.3s ease;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,77 +51,105 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: #272727;
+  background-color: var(--dark-gray);
+  display: flex;
+  justify-content: center;
 }
 
 .ranking-header {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
-  background: #fff;
-  border-radius: 5px;
-  padding: 10px 20px;
-  margin: 20px;
+  gap: var(--spacing-lg);
+  background: var(--white);
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-md) var(--spacing-xl);
+  margin: var(--spacing-xl);
   width: fit-content;
 }
 
 .ranking-header img {
-  width: 80px;
+  width: var(--logo-size);
   height: auto;
 }
 
 .ranking-header h1 {
-  font-size: 28px;
-  font-weight: 700;
-  color: #272727;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--dark-gray);
   margin: 0;
   text-transform: uppercase;
 }
 
 .participants-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1rem;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(var(--card-min-width), 1fr));
+  padding: var(--spacing-xl);
 }
+
+
 
 .participant-card {
-  background: white;
-  border-radius: 10px;
+  background: var(--white);
   text-align: center;
-  padding: 15px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-light);
+  border-radius: 0;
+  cursor: pointer;
+  transition: var(--transition-default);
 }
 
-/* Imagem circular com tamanho fixo */
-.image-participant {
-  width: 100px;
-  /* largura fixa */
-  height: 100px;
-  /* altura fixa */
+.participant-card:nth-child(even) {
+  background-color: #F2F0F1;
+}
+
+.participant-card:nth-child(odd) {
+  background-color: #FFFFFF;
+}
+
+.participant-card:hover {
+  background-color: var(--primary-red);
+  transition: var(--transition-default);
+}
+
+.participant-card:first-child {
+  border-radius: var(--border-radius-sm) var(--border-radius-sm) 0 0;
+}
+
+.participant-card:last-child {
+  border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
+}
+
+.participant-image {
+  width: var(--image-size);
+  height: var(--image-size);
   object-fit: cover;
-  /* evita distorções */
-  border-radius: 50%;
-  /* deixa redonda */
-  margin-bottom: 10px;
-  /* espaço para o texto */
-  border: 5px solid #BA3536;
-  /* borda branca para destacar */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: var(--border-radius-full);
+  margin-bottom: var(--spacing-md);
+  border: var(--border-width) solid var(--secondary-red);
+  box-shadow: var(--shadow-medium);
 }
 
-/* Nome do participante */
+.participant-card:hover .participant-image {
+  border: var(--border-width) solid var(--white);
+}
+
 .participant-card h2 {
-  font-size: 18px;
-  font-weight: 700;
-  margin: 8px 0 5px;
-  color: #BB3D42;
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  margin: var(--spacing-sm) 0 var(--spacing-xs);
+  color: var(--dark-red);
 }
 
-/* Descrição */
+.participant-card:hover h2 {
+  color: var(--white);
+}
+
 .participant-card p {
-  font-size: 14px;
-  color: #555;
-  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--light-gray);
+}
+
+.participant-card:hover p {
+  color: var(--black);
 }
