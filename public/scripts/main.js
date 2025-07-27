@@ -4,15 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.participants-container');
 
   function createParticipantCard(participant) {
-    const article = document.createElement('article');
-    article.classList.add('participant-card');
+    const participantCard = document.createElement('article');
+    participantCard.classList.add('participant-card');
 
-    article.innerHTML = `
+    participantCard.innerHTML = `
       <img class='participant-image' src='${participant.picture}' alt='Foto de ${participant.name}' loading='lazy'>
       <h2>${participant.name}</h2>
       <p>${participant.description}</p>
     `;
-    return article;
+    return participantCard;
   }
 
   fetch('../data/fazenda.json')

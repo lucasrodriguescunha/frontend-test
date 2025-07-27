@@ -87,8 +87,6 @@ body {
   padding: var(--spacing-xl);
 }
 
-
-
 .participant-card {
   background: var(--white);
   text-align: center;
