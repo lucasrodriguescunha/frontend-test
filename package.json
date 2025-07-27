@@ -2,10 +2,16 @@
   "name": "R7FrontendTest",
   "version": "0.0.1",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "jest",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "connect": "~3.1.1",
     "serve-static": "~1.5.3"
+  },
+  "devDependencies": {
+    "cypress": "^14.5.3",
+    "jest": "^30.0.5"
   }
 }
