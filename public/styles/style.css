@@ -118,6 +118,23 @@ body {
   border-radius: 0 0 var(--border-radius-sm) var(--border-radius-sm);
 }
 
+.participant-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  text-align: left;
+}
+
+.participant-content img {
+  margin: 0;
+}
+
+.participant-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .participant-image {
   width: var(--image-size);
   height: var(--image-size);
