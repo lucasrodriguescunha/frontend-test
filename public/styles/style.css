@@ -76,9 +76,7 @@ body {
   height: auto;
   position: absolute;
   top: -120px;
-  /* sobrepõe o topo */
   left: -90px;
-  /* move para a esquerda */
   z-index: 2;
 }
 
@@ -91,7 +89,6 @@ body {
   margin-left: 167px;
   position: relative;
   right: 45px;
-  /* empurra texto para a direita do logo */
 }
 
 .participants-container {
@@ -142,6 +139,38 @@ body {
 .participant-content img {
   margin: 0;
 }
+
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.badge {
+  position: absolute;
+  top: 55px;
+  right: 5px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white);
+  color: #6d6d6d;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  border-radius: 50%;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(26, 36, 40, 0.32) 0px 2px 16px 0px;
+  border: 1.5px solid gray;
+  z-index: 3;
+  text-transform: uppercase;
+  transition: var(--transition-default);
+}
+
+/* .participant-card:hover .badge {
+  background-color: var(--white);
+  color: var(--primary-red);
+} */
 
 .participant-text {
   display: flex;

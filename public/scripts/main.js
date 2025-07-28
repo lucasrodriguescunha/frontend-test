@@ -6,7 +6,11 @@ function createParticipantCard(participant) {
 
   participantCard.innerHTML = `
     <div class='participant-content'>
-      <img class='participant-image' src='${participant.picture}' alt='Foto de ${participant.name}' loading='lazy'>
+      <div class='image-wrapper'>
+        <img class='participant-image' src='${participant.picture}' alt='Foto de ${participant.name}' loading='lazy'>
+        <span class='badge'>${participant.position}</span>
+      </div>
+
         <div class='participant-text'>
           <h2>${participant.name}</h2>
           <p>${participant.description}</p>
@@ -17,7 +21,7 @@ function createParticipantCard(participant) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const container = document.querySelector('.participants-container');
+  const participantsContainer = document.querySelector('.participants-container');
 
   fetch('../data/fazenda.json')
     .then(response => {
@@ -26,9 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .then(data => {
       const sorted = sortParticipants(data.data, 'positive');
-      sorted.forEach(participant => {
+      sorted.forEach((participant, index) => {
+        participant.position = index + 1;
         const card = createParticipantCard(participant);
-        container.appendChild(card);
+        participantsContainer.appendChild(card);
       });
     })
     .catch(error => console.error(error));
