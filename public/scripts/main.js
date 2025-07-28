@@ -1,22 +1,38 @@
 import { sortParticipants } from './sortParticipants.js';
 
 function createParticipantCard(participant) {
+  const totalVotes = (participant.positive || 0) + (participant.negative || 0);
+  const positivePercentage = totalVotes > 0 ? Math.round((participant.positive / totalVotes) * 100) : 0;
+  const negativePercentage = totalVotes > 0 ? 100 - positivePercentage : 0;
+
   const participantCard = document.createElement('article');
   participantCard.classList.add('participant-card');
 
   participantCard.innerHTML = `
-    <div class='participant-content'>
-      <div class='image-wrapper'>
-        <img class='participant-image' src='${participant.picture}' alt='Foto de ${participant.name}' loading='lazy'>
-        <span class='badge'>${participant.position}</span>
+    <div class="participant-content">
+      <div class="image-wrapper">
+        <img class="participant-image" src="${participant.picture}" alt="Foto de ${participant.name}" loading="lazy">
+        <span class="badge">${participant.position}</span>
       </div>
 
-        <div class='participant-text'>
-          <h2>${participant.name}</h2>
-          <p>${participant.description}</p>
-        </div>
+      <div class="participant-text">
+        <h2>${participant.name}</h2>
+        <p>${participant.description}</p>
+      </div>
+    </div>
+
+    <div class="vote-status">
+      <div class="vote like">
+        <span>Gostam</span>
+        <strong>${positivePercentage}%</strong>
+      </div>
+      <div class="vote dislike">
+        <span>Não Gostam</span>
+        <strong>${negativePercentage}%</strong>
+      </div>
     </div>
   `;
+
   return participantCard;
 }
 
