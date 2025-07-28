@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`createParticipantCard Consistência e Performance deve gerar HTML consistente (snapshot) 1`] = `
+"<article class="participant-card">
+    <div class="participant-content">
+      <div class="image-wrapper">
+        <img class="participant-image" src="lucas.jpg" alt="Foto de Lucas Rodrigues" loading="lazy">
+        <span class="badge">undefined</span>
+      </div>
+
+      <div class="participant-text">
+        <h2>Lucas Rodrigues</h2>
+        <p>Desenvolvedor apaixonado por tecnologia</p>
+      </div>
+    </div>
+
+    <div class="vote-status">
+      <div class="vote like">
+        <span>Gostam</span>
+        <strong>0%</strong>
+      </div>
+      <div class="vote dislike">
+        <span>Não Gostam</span>
+        <strong>0%</strong>
+      </div>
+    </div>
+  </article>"
+`;
