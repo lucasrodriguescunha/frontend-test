@@ -24,4 +24,4 @@ Cypress.Commands.add('setViewport', (size) => {
 beforeEach(() => {
   cy.log('Starting test...')
 })
-})
+

@@ -9,24 +9,24 @@ function createParticipantCard(participant) {
   participantCard.classList.add('participant-card');
 
   participantCard.innerHTML = `
-    <div class="participant-content">
-      <div class="image-wrapper">
-        <img class="participant-image" src="${participant.picture}" alt="Foto de ${participant.name}" loading="lazy">
-        <span class="badge">${participant.position}</span>
+    <div class='participant-content'>
+      <div class='image-wrapper'>
+        <img class='participant-image' src='${participant.picture}' alt='Foto de ${participant.name}' loading='lazy'>
+        <span class='badge'>${participant.position}</span>
       </div>
 
-      <div class="participant-text">
+      <div class='participant-text'>
         <h2>${participant.name}</h2>
         <p>${participant.description}</p>
       </div>
     </div>
 
-    <div class="vote-status">
-      <div class="vote like">
+    <div class='vote-status'>
+      <div class='vote like'>
         <span>Gostam</span>
         <strong>${positivePercentage}%</strong>
       </div>
-      <div class="vote dislike">
+      <div class='vote dislike'>
         <span>Não Gostam</span>
         <strong>${negativePercentage}%</strong>
       </div>

@@ -1,4 +1,4 @@
-# A Fazenda - Ranking dos Participantes 
+# A Fazenda - Ranking dos Participantes
 
 ## ✅ Projeto concluído
 
@@ -97,7 +97,7 @@ npm run cypress:open
 - **CSS Custom Properties** para variáveis organizadas
 - **BEM-like** naming convention para classes
 - **Flexbox** e **Grid** para layouts modernos
-  
+
 ---
 
 ## 📱 Responsividade
