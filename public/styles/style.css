@@ -1,4 +1,5 @@
 :root {
+  /* Colors */
   --primary-red: #BB3639;
   --secondary-red: #BA3536;
   --dark-red: #BB3D42;
@@ -8,32 +9,80 @@
   --text-light: #8F8F8F;
   --white: #FFFFFF;
   --black: #000000;
+  --even-card-bg: #F2F0F1;
+  --transparent: transparent;
+  --border-gray: gray;
 
+  /* Spacing */
   --spacing-xs: 0.3125rem;
   --spacing-sm: 0.5rem;
   --spacing-md: 0.625rem;
   --spacing-lg: 0.9375rem;
   --spacing-xl: 1.25rem;
 
+  /* Border */
   --border-radius-sm: 0.125rem;
   --border-radius-full: 50%;
   --border-width: 0.3125rem;
+  --badge-border-width: 0.09375rem;
 
+  /* Shadows */
   --shadow-light: 0 2px 6px rgba(0, 0, 0, 0.1);
   --shadow-medium: 0 2px 5px rgba(0, 0, 0, 0.2);
   --badge-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
     rgba(26, 36, 40, 0.32) 0px 2px 16px 0px;
 
+  /* Typography */
+  --font-family-primary: 'Montserrat', sans-serif;
+  --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-md: 1.125rem;
-  --font-size-lg: 2.125rem;
+  --font-size-lg: 1.5rem;
+  --font-size-xl: 2.125rem;
   --font-weight-bold: 700;
 
+  /* Sizes */
   --image-size: 5rem;
+  --badge-size: 1.75rem;
   --logo-size: 100%;
   --card-min-width: 13.75rem;
+  --card-width: 25rem;
+  --card-width-mobile: 21.875rem;
+  --vote-min-width: 5rem;
 
+  /* Positioning */
+  --header-margin-top: 8.75rem;
+  --header-margin: 3.75rem;
+  --header-left: 2.875rem;
+  --header-left-mobile: 2.9375rem;
+  --logo-top: -6.875rem;
+  --logo-left: -5.625rem;
+  --logo-top-mobile: -7.8125rem;
+  --logo-left-mobile: -4.0625rem;
+  --title-margin-left: 9.0625rem;
+  --title-margin-left-mobile: 10.9375rem;
+  --title-right: 2.8125rem;
+  --title-right-mobile: 2.5rem;
+  --badge-top: 3.4375rem;
+  --badge-right: 0.3125rem;
+  --vote-right: -13.125rem;
+  --vote-gap: 0.0625rem;
+  --participant-bottom: 0.4375rem;
+
+  /* Opacity */
+  --opacity-hidden: 0;
+  --opacity-visible: 1;
+
+  /* Z-index */
+  --z-index-low: 1;
+  --z-index-medium: 2;
+  --z-index-high: 3;
+
+  /* Transitions */
   --transition-default: all 0.3s ease;
+
+  /* Media Query Breakpoint */
+  --mobile-breakpoint: 767px;
 }
 
 * {
@@ -43,7 +92,7 @@
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--font-family-primary);
   background-color: var(--dark-gray);
   display: flex;
   justify-content: center;
@@ -56,32 +105,32 @@ body {
   background: var(--white);
   border-radius: var(--border-radius-sm);
   padding: var(--spacing-md) var(--spacing-xl);
-  margin: 3.75rem var(--spacing-xl) var(--spacing-xl);
+  margin: var(--header-margin) var(--spacing-xl) var(--spacing-xl);
   width: fit-content;
   position: relative;
-  z-index: 1;
-  margin-top: 8.75rem;
-  left: 2.875rem;
+  z-index: var(--z-index-low);
+  margin-top: var(--header-margin-top);
+  left: var(--header-left);
 }
 
 .ranking-header .logo {
   width: auto;
   height: auto;
   position: absolute;
-  top: -6.875rem;
-  left: -5.625rem;
-  z-index: 2;
+  top: var(--logo-top);
+  left: var(--logo-left);
+  z-index: var(--z-index-medium);
 }
 
 .ranking-header h1 {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
   color: var(--dark-gray);
   margin: 0;
   text-transform: uppercase;
-  margin-left: 9.0625rem;
+  margin-left: var(--title-margin-left);
   position: relative;
-  right: 2.8125rem;
+  right: var(--title-right);
 }
 
 .participants-container {
@@ -98,16 +147,16 @@ body {
   border-radius: 0;
   cursor: default;
   transition: var(--transition-default);
-  width: 25rem;
+  width: var(--card-width);
   position: relative;
 }
 
 .participant-card:nth-child(even) {
-  background-color: #F2F0F1;
+  background-color: var(--even-card-bg);
 }
 
 .participant-card:nth-child(odd) {
-  background-color: #FFFFFF;
+  background-color: var(--white);
 }
 
 .participant-card:hover {
@@ -140,10 +189,10 @@ body {
 
 .badge {
   position: absolute;
-  top: 3.4375rem;
-  right: 0.3125rem;
-  width: 1.75rem;
-  height: 1.75rem;
+  top: var(--badge-top);
+  right: var(--badge-right);
+  width: var(--badge-size);
+  height: var(--badge-size);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -153,8 +202,8 @@ body {
   font-weight: var(--font-weight-bold);
   border-radius: var(--border-radius-full);
   box-shadow: var(--badge-shadow);
-  border: 0.09375rem solid gray;
-  z-index: 3;
+  border: var(--badge-border-width) solid var(--border-gray);
+  z-index: var(--z-index-high);
   text-transform: uppercase;
   transition: var(--transition-default);
 }
@@ -170,21 +219,21 @@ body {
   flex-direction: row;
   position: absolute;
   top: 50%;
-  right: -13.125rem;
+  right: var(--vote-right);
   transform: translateY(-50%);
   align-items: center;
-  background: transparent;
-  opacity: 0;
+  background: var(--transparent);
+  opacity: var(--opacity-hidden);
   transition: var(--transition-default);
-  gap: 0.0625rem;
+  gap: var(--vote-gap);
 }
 
 .participant-card:hover .vote-status {
-  opacity: 1;
+  opacity: var(--opacity-visible);
 }
 
 .vote {
-  min-width: 5rem;
+  min-width: var(--vote-min-width);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-bold);
   text-align: center;
@@ -199,14 +248,14 @@ body {
   padding: 0.25rem 0.75rem;
   color: var(--white);
   text-transform: uppercase;
-  font-size: 0.75rem;
+  font-size: var(--font-size-xs);
   text-align: center;
 }
 
 .vote strong {
   padding: var(--spacing-sm);
   color: var(--text-light);
-  font-size: 1.5rem;
+  font-size: var(--font-size-lg);
   text-align: center;
 }
 
@@ -241,7 +290,7 @@ body {
   margin: 0;
   padding: 0;
   position: relative;
-  bottom: 0.4375rem;
+  bottom: var(--participant-bottom);
 }
 
 .participant-card:hover p {
@@ -250,22 +299,22 @@ body {
 
 @media only screen and (max-width: 767px) {
   .ranking-header {
-    left: 2.9375rem;
+    left: var(--header-left-mobile);
   }
 
   .participant-card {
-    width: 21.875rem;
+    width: var(--card-width-mobile);
   }
 
   .ranking-header h1 {
     font-size: var(--font-size-md);
-    right: 2.5rem;
-    margin-left: 10.9375rem;
+    right: var(--title-right-mobile);
+    margin-left: var(--title-margin-left-mobile);
   }
 
   .ranking-header .logo {
-    top: -7.8125rem;
-    left: -4.0625rem;
+    top: var(--logo-top-mobile);
+    left: var(--logo-left-mobile);
   }
 
   .vote-status {
