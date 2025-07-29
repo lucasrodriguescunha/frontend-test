@@ -1,14 +1,3 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-
-// Comando para aguardar carregamento completo dos participantes
 Cypress.Commands.add('waitForParticipants', () => {
   cy.get('.participant-card', { timeout: 10000 }).should('have.length.greaterThan', 0)
   cy.get('.participant-card').each($card => {
@@ -17,7 +6,6 @@ Cypress.Commands.add('waitForParticipants', () => {
   })
 })
 
-// Comando para verificar se um card de participante está bem formado
 Cypress.Commands.add('validateParticipantCard', (cardSelector) => {
   cy.get(cardSelector).within(() => {
     cy.get('.participant-image').should('be.visible').and('have.attr', 'alt')
@@ -28,7 +16,6 @@ Cypress.Commands.add('validateParticipantCard', (cardSelector) => {
   })
 })
 
-// Comando para testar responsividade rapidamente
 Cypress.Commands.add('testResponsiveness', (viewports = ['iphone-6', 'ipad-2', [1920, 1080]]) => {
   viewports.forEach(viewport => {
     if (Array.isArray(viewport)) {
@@ -43,7 +30,6 @@ Cypress.Commands.add('testResponsiveness', (viewports = ['iphone-6', 'ipad-2', [
   })
 })
 
-// Comando para verificar performance básica
 Cypress.Commands.add('checkPerformance', (maxLoadTime = 3000) => {
   const startTime = Date.now()
 

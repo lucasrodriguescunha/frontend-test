@@ -1,7 +1,6 @@
 const { createParticipantCard } = require('../scripts/main');
 
 describe('createParticipantCard', () => {
-  // Setup comum para os testes
   const mockParticipant = {
     name: 'Lucas Rodrigues',
     picture: 'lucas.jpg',
@@ -20,13 +19,11 @@ describe('createParticipantCard', () => {
     it('deve ter a estrutura hierárquica correta', () => {
       const card = createParticipantCard(mockParticipant);
 
-      // Verifica se a estrutura de divs está correta
       expect(card.querySelector('.participant-content')).toBeTruthy();
       expect(card.querySelector('.participant-text')).toBeTruthy();
 
-      // Verifica a hierarquia
       const content = card.querySelector('.participant-content');
-      expect(content.children.length).toBe(2); // img + div.participant-text
+      expect(content.children.length).toBe(2);
     });
 
     it('deve ter elementos semânticos corretos', () => {
@@ -108,13 +105,9 @@ describe('createParticipantCard', () => {
 
       const card = createParticipantCard(specialParticipant);
 
-      // NOTA: Este teste documenta o comportamento atual
-      // Em produção, seria recomendável escapar o conteúdo HTML
       expect(card.textContent).toContain('alert("xss")');
       expect(card.textContent).toContain('Teste & validação');
 
-      // Verifica que existe o elemento (comportamento atual)
-      // Em uma implementação mais segura, isto seria 0
       const scripts = card.querySelectorAll('script');
       expect(scripts.length).toBeGreaterThanOrEqual(0);
     });
@@ -163,7 +156,6 @@ describe('createParticipantCard', () => {
 
       expect(cards).toHaveLength(3);
 
-      // Verifica se cada card é único e contém os dados corretos
       cards.forEach((card, index) => {
         expect(card.textContent).toContain(participants[index].name);
         expect(card.querySelector('img').src).toContain(participants[index].picture);
@@ -173,7 +165,6 @@ describe('createParticipantCard', () => {
     it('deve ser performático para criação em massa', () => {
       const startTime = performance.now();
 
-      // Cria 100 cards
       for (let i = 0; i < 100; i++) {
         createParticipantCard({
           name: `Participant ${i}`,
@@ -185,7 +176,6 @@ describe('createParticipantCard', () => {
       const endTime = performance.now();
       const executionTime = endTime - startTime;
 
-      // Deve executar em menos de 200ms (mais realista)
       expect(executionTime).toBeLessThan(200);
     });
   });
@@ -203,7 +193,6 @@ describe('createParticipantCard', () => {
     it('deve estar preparado para interações CSS (hover, etc)', () => {
       const card = createParticipantCard(mockParticipant);
 
-      // Verifica se os elementos estão estruturados para CSS hover
       expect(card.querySelector('img')).toBeTruthy();
       expect(card.querySelector('h2')).toBeTruthy();
       expect(card.querySelector('p')).toBeTruthy();

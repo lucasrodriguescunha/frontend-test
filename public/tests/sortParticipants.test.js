@@ -12,10 +12,10 @@ describe('sortParticipants', () => {
     it('deve ordenar participantes por votos positivos em ordem decrescente', () => {
       const sorted = sortParticipants(mockParticipants, 'positive');
 
-      expect(sorted[0].name).toBe('Bruno'); // 200 votos
-      expect(sorted[1].name).toBe('Carlos'); // 150 votos
-      expect(sorted[2].name).toBe('Ana'); // 100 votos
-      expect(sorted[3].name).toBe('Diana'); // 50 votos
+      expect(sorted[0].name).toBe('Bruno');
+      expect(sorted[1].name).toBe('Carlos');
+      expect(sorted[2].name).toBe('Ana');
+      expect(sorted[3].name).toBe('Diana');
     });
 
     it('deve usar "positive" como critério padrão', () => {
@@ -32,10 +32,10 @@ describe('sortParticipants', () => {
     it('deve ordenar participantes por votos negativos em ordem decrescente', () => {
       const sorted = sortParticipants(mockParticipants, 'negative');
 
-      expect(sorted[0].name).toBe('Carlos'); // 80 negativos
-      expect(sorted[1].name).toBe('Ana'); // 50 negativos
-      expect(sorted[2].name).toBe('Bruno'); // 30 negativos
-      expect(sorted[3].name).toBe('Diana'); // 20 negativos
+      expect(sorted[0].name).toBe('Carlos');
+      expect(sorted[1].name).toBe('Ana');
+      expect(sorted[2].name).toBe('Bruno');
+      expect(sorted[3].name).toBe('Diana');
     });
   });
 
@@ -104,7 +104,6 @@ describe('sortParticipants', () => {
 
       expect(sorted[0].name).toBe('Winner');
       expect(sorted[0].positive).toBe(200);
-      // Os dois emppatados podem estar em qualquer ordem
       expect([sorted[1].name, sorted[2].name]).toContain('Tie1');
       expect([sorted[1].name, sorted[2].name]).toContain('Tie2');
     });
@@ -112,8 +111,6 @@ describe('sortParticipants', () => {
     it('deve funcionar com critério inválido (fallback para positive)', () => {
       const sorted = sortParticipants(mockParticipants, 'invalid_criteria');
 
-      // Como 'invalid_criteria' não existe, deve retornar NaN - NaN = NaN
-      // Mas nossa função deve ser robusta o suficiente
       expect(Array.isArray(sorted)).toBe(true);
       expect(sorted).toHaveLength(mockParticipants.length);
     });
@@ -125,7 +122,7 @@ describe('sortParticipants', () => {
       const sorted = sortParticipants(mockParticipants, 'positive');
 
       expect(mockParticipants).toEqual(original);
-      expect(sorted).not.toBe(mockParticipants); // Diferentes referências
+      expect(sorted).not.toBe(mockParticipants);
     });
 
     it('não deve modificar objetos originais', () => {
@@ -133,13 +130,12 @@ describe('sortParticipants', () => {
       const sorted = sortParticipants(mockParticipants, 'positive');
 
       expect(mockParticipants[0]).toEqual(originalFirst);
-      expect(sorted[0]).not.toBe(mockParticipants[0]); // Diferentes referências
+      expect(sorted[0]).not.toBe(mockParticipants[0]);
     });
   });
 
   describe('Performance', () => {
     it('deve ser performático para arrays grandes', () => {
-      // Cria array com 1000 participantes
       const largeArray = Array.from({ length: 1000 }, (_, i) => ({
         name: `Participant ${i}`,
         positive: Math.floor(Math.random() * 1000),
@@ -151,7 +147,7 @@ describe('sortParticipants', () => {
       const endTime = performance.now();
 
       expect(sorted).toHaveLength(1000);
-      expect(endTime - startTime).toBeLessThan(100); // Menos de 100ms
+      expect(endTime - startTime).toBeLessThan(100);
     });
   });
 });

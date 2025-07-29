@@ -54,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(error => console.error(error));
 });
 
-// Para compatibilidade com CommonJS (testes)
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { createParticipantCard };
 }
