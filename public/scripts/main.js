@@ -32,7 +32,6 @@ function createParticipantCard(participant) {
       </div>
     </div>
   `;
-
   return participantCard;
 }
 

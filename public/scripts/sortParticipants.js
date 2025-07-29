@@ -12,7 +12,6 @@ export const sortParticipants = (list, criteria = 'positive') => {
     });
 };
 
-
 // Para compatibilidade com CommonJS (testes)
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { sortParticipants };
