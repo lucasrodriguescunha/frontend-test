@@ -1,6 +1,6 @@
 # A Fazenda - Ranking dos Participantes
 
-## ✅ Projeto concluído
+## Projeto concluído
 
 Este projeto é um teste frontend para o **R7.com** que apresenta um ranking dos participantes do programa "A Fazenda", com votos positivos e negativos, ordenados por popularidade.
 
